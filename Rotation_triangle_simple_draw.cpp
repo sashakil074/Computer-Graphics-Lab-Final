@@ -31,7 +31,7 @@ void plotgraph(int screenWidth,int screenHeight)
 }
 int main(){
 	
-	float x,y,x0,y0,x1,y1,x2,y2,angle,radian;
+	float x,y,x0,y0,x1,y1,x2,y2,xa,xb,xc,ya,yb,yc,angle,radian;
 	
 	//graphics driver
 	int gd=DETECT,gm;
@@ -66,18 +66,18 @@ int main(){
 	outtextxy((screenWidth/2)+x0,(screenHeight/2)-y0+10, "Before rotation");
     
     //after rotation
-    x0=x0*cos(angle*radian)-y0*sin(angle*radian);
-    y0=x0*sin(angle*radian)+y0*cos(angle*radian);
-    x1=x1*cos(angle*radian)-y1*sin(angle*radian);
-    y1=x1*sin(angle*radian)+y1*cos(angle*radian);
-    x2=x2*cos(angle*radian)-y2*sin(angle*radian);
-    y2=x2*sin(angle*radian)+y2*cos(angle*radian);
+    xa=x0*cos(angle*radian)-y0*sin(angle*radian);
+    ya=x0*sin(angle*radian)+y0*cos(angle*radian);
+    xb=x1*cos(angle*radian)-y1*sin(angle*radian);
+    yb=x1*sin(angle*radian)+y1*cos(angle*radian);
+    xc=x2*cos(angle*radian)-y2*sin(angle*radian);
+    yc=x2*sin(angle*radian)+y2*cos(angle*radian);
     
     setcolor(GREEN);
-	line((screenWidth/2)+x0,(screenHeight/2)-y0,(screenWidth/2)+x1,(screenHeight/2)-y1);
-	line((screenWidth/2)+x1,(screenHeight/2)-y1,(screenWidth/2)+x2,(screenHeight/2)-y2);
-	line((screenWidth/2)+x2,(screenHeight/2)-y2,(screenWidth/2)+x0,(screenHeight/2)-y0);   
-    outtextxy((screenWidth/2)+x1+10,(screenHeight/2)-y1-10, "After rotation");
+	line((screenWidth/2)+xa,(screenHeight/2)-ya,(screenWidth/2)+xb,(screenHeight/2)-yb);
+	line((screenWidth/2)+xb,(screenHeight/2)-yb,(screenWidth/2)+xc,(screenHeight/2)-yc);
+	line((screenWidth/2)+xc,(screenHeight/2)-yc,(screenWidth/2)+xa,(screenHeight/2)-ya);   
+    outtextxy((screenWidth/2)+xb+10,(screenHeight/2)-yb-10, "After rotation");
     outtextxy((screenWidth/2)+5,(screenHeight/2)+5, "(0,0)");
 
 	getch();

@@ -31,7 +31,7 @@ void plotgraph(int screenWidth,int screenHeight)
 }
 int main(){
 	
-	float r,xc,yc,angle,radian;
+	float r,xc,yc,xa,ya,angle,radian;
 	
 	//graphics driver
 	int gd=DETECT,gm;
@@ -61,12 +61,12 @@ int main(){
 	outtextxy((screenWidth/2)+xc,(screenHeight/2)-yc+10, "Before rotation");
     
     //after rotation
-    xc=xc*cos(angle*radian)-yc*sin(angle*radian);
-    yc=xc*sin(angle*radian)+yc*cos(angle*radian);
+    xa=xc*cos(angle*radian)-yc*sin(angle*radian);
+    ya=xc*sin(angle*radian)+yc*cos(angle*radian);
     
     setcolor(GREEN);
-	circle((screenWidth/2)+xc,(screenHeight/2)-yc,r);    
-    outtextxy((screenWidth/2)+xc+10,(screenHeight/2)-yc-10, "After rotation");
+	circle((screenWidth/2)+xa,(screenHeight/2)-ya,r);    
+    outtextxy((screenWidth/2)+xa+10,(screenHeight/2)-ya-10, "After rotation");
     outtextxy((screenWidth/2)+5,(screenHeight/2)+5, "(0,0)");
 
 	getch();

@@ -38,18 +38,18 @@ void plotgraph(int screenWidth,int screenHeight)
 int getcode(int x,int y){
 	int code = 0;
 	//Perform Bitwise OR to get outcode
-	if(y > yh) code |=TOP;
-	if(y < yl) code |=BOTTOM;
-	if(x < xl) code |=LEFT;
-	if(x > xh) code |=RIGHT;
+	if(y > yh) code =code | TOP;
+	if(y < yl) code =code | BOTTOM;
+	if(x < xl) code =code | LEFT;
+	if(x > xh) code =code | RIGHT;
 	return code;
 }
 
 int main()
 {
 		
-	int gdriver = DETECT,gmode;
-	initgraph(&gdriver,&gmode,"C:\\TC\\BGI");
+	int gd = DETECT,gm;
+	initgraph(&gd,&gm,"C:\\TC\\BGI");
 		
 	//window size measurement and initialization
 	DWORD screenWidth=GetSystemMetrics(SM_CXSCREEN);

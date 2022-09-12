@@ -31,7 +31,7 @@ void plotgraph(int screenWidth,int screenHeight)
 }
 int main(){
 	
-	float x,y,x0,y0,x1,y1,xr,yr,angle,radian;
+	float x,y,x0,y0,x1,y1,xr,yr,xa,xb,ya,yb,angle,radian;
 	
 	//graphics driver
 	int gd=DETECT,gm;
@@ -64,14 +64,14 @@ int main(){
 	outtextxy((screenWidth/2)+x0,(screenHeight/2)-y0+10, "Before rotation");
     
     //after rotation
-    x0=xr+(x0-xr)*cos(angle*radian)-(y0-yr)*sin(angle*radian);
-    y0=yr+(x0-xr)*sin(angle*radian)+(y0-yr)*cos(angle*radian);
-    x1=xr+(x1-xr)*cos(angle*radian)-(y1-yr)*sin(angle*radian);
-    y1=yr+(x1-xr)*sin(angle*radian)+(y1-yr)*cos(angle*radian);
+    xa=xr+(x0-xr)*cos(angle*radian)-(y0-yr)*sin(angle*radian);
+    ya=yr+(x0-xr)*sin(angle*radian)+(y0-yr)*cos(angle*radian);
+    xb=xr+(x1-xr)*cos(angle*radian)-(y1-yr)*sin(angle*radian);
+    yb=yr+(x1-xr)*sin(angle*radian)+(y1-yr)*cos(angle*radian);
     
     setcolor(GREEN);
-	line((screenWidth/2)+x0,(screenHeight/2)-y0,(screenWidth/2)+x1,(screenHeight/2)-y1);    
-    outtextxy((screenWidth/2)+x1+10,(screenHeight/2)-y1-10, "After rotation");
+	line((screenWidth/2)+xa,(screenHeight/2)-ya,(screenWidth/2)+xb,(screenHeight/2)-yb);    
+    outtextxy((screenWidth/2)+xb+10,(screenHeight/2)-yb-10, "After rotation");
     outtextxy((screenWidth/2)+5,(screenHeight/2)+5, "(0,0)");
     
     //drawing the pivot point as circle for visualization
