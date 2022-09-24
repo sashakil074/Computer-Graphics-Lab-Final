@@ -34,7 +34,7 @@ int main(){
 	float x,y,x0,y0,x1,y1,dx,dy,pk;
 	
 	//graphics driver
-	int gd=DETECT,gm;
+	int gd=DETECT,gm,step;
 	initgraph(&gd,&gm,"c:\\tc\\bgi");
 	
 	//window size measurement and initialization
@@ -55,14 +55,28 @@ int main(){
 	dy=abs(y1-y0);
 	
 	
-	x=x0;
-	y=y0;
+
+	if(x0>x1)
+	  {
+	  	x=x1;
+	  	y=y1;
+	  	step=x0;
+	  }
+	else
+	{
+		x=x0;
+		y=y0;
+		step=x1;
+	}
+	
+//	x = (dy/dx > 1) ? y : x;
+//	y = (dy/dx > 1) ? x : y;
 	
 	pk=2*dy-dx;
 	
 //	cout<<"x\ty"<<endl;	
     
-    for(int i=0;i<=dx;i++)
+    for(int i=x;i<step;i++)
     {
     //	cout<<(int)(x)<<"\t"<<(int)(y)<<endl;
     //	cout<<(screenWidth/2)+((int) (x))<<"\t"<<(screenWidth/2)-((int)(y))<<endl;
@@ -70,17 +84,16 @@ int main(){
         
         if(pk<0)
         {
-        	x=x+1;
+        	
         	y=y;
         	pk=pk+2*dy;
 		}
 		else
 		{
-			x=x+1;
         	y=y+1;
         	pk=pk+2*dy-2*dx;
 		}
-        
+        x=x+1;
         outtextxy((screenWidth/2)+x0,(screenHeight/2)-y0+10, "Starting point");
         outtextxy((screenWidth/2)+x1+10,(screenHeight/2)-y1-10, "Ending point");
         outtextxy((screenWidth/2)+5,(screenHeight/2)+5, "(0,0)");

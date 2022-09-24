@@ -77,6 +77,7 @@ int main(){
     {
     //	cout<<(int)(x+0.5)<<"\t"<<(int)(y+0.5)<<endl;//round=(int)(a+0.5)
     //	cout<<(screenWidth/2)+((int) (x+0.5))<<"\t"<<(screenWidth/2)-((int)(y+0.5))<<endl;
+        setlinestyle(0,0,2);
         putpixel((screenWidth/2)+((int) (x+0.5)),(screenHeight/2)-((int)(y+0.5)),GREEN);
         
         outtextxy((screenWidth/2)+x0,(screenHeight/2)-y0+10, "Starting point");
